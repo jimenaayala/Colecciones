@@ -33,8 +33,8 @@ public class AlumnoApp {
             op = leer.next();
         }
         as.mostrarAlumnos(alumnos);
-        System.out.println("Sobre que usuario quiere calcular la nota final");
-        
+        System.out.println("Sobre que usuario quiere calcular la nota final, igrese nombre respetando formato");
+        as.mostrarNotas(alumnos, leer.next());
     }
     
 }

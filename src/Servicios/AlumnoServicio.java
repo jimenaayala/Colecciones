@@ -38,5 +38,17 @@ public class AlumnoServicio {
     public void mostrarAlumnos(ArrayList<Alumno> alumnos) {
         alumnos.forEach((aux) -> System.out.println(aux));
     }
+    public void mostrarNotas (ArrayList<Alumno> alumnos, String nombre){
+        Integer promedio = 0;
+        for (Alumno alumno : alumnos) {
+            if (alumno.getNombre().equals(nombre)){
+                for (Integer not: alumno.getNotas()){
+                    System.out.println(not);
+                    promedio = promedio + not;
+                }
+                System.out.println("el promedio de nota es "+ promedio/alumno.getNotas().size());
+            }
+        }
+    }
 
 }
