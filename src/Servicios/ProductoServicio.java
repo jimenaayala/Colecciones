@@ -15,7 +15,7 @@ import java.util.Scanner;
  * @author Jime
  */
 public class ProductoServicio {
-    Map <String,Float> productos = new LinkedHashMap<>();
+    Map <String,Float> productos = new HashMap<>();
 
     
     public void sumarProducto (){
@@ -29,15 +29,10 @@ public class ProductoServicio {
         String prodEliminar;
         System.out.println("Ingrese el nombre del producto que desea eliminar:");        
         prodEliminar = read.nextLine();
-        productos.entrySet().forEach((Map.Entry<String, Float> entry) -> {
-           if (entry.getKey().equalsIgnoreCase(prodEliminar)){
-               //productos.remove(entry.getKey(),entry.getValue());
-               System.out.println("el producto a eliminar " + entry.toString());
-               productos.remove(entry);
-           }
-            
-        });
+        productos.remove(prodEliminar);
+        mostrarProductos();
     } 
+
     public void modificarProducto(){
         Scanner read = new Scanner(System.in);
         String prodModificar;
@@ -48,10 +43,9 @@ public class ProductoServicio {
             Float value = entry.getValue();
             if (prodModificar.equalsIgnoreCase(key)) {
                 System.out.println("Ingrese producto y valor");
-                productos.put(key, (float) (read.nextDouble()));
-                //((float) read.nextDouble())
-                
+                productos.put(key, (float) (read.nextDouble()));                               
             }
+            mostrarProductos();
         });
     
     }
